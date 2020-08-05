@@ -1,3 +1,4 @@
+require 'date'
 class Event
 attr_reader :name, :food_trucks
 
@@ -55,5 +56,12 @@ attr_reader :name, :food_trucks
     end.sort
   end
 
+  # def date
+  #    @date.strftime("%e %m %y")
+  # end
+
+  def sell
+
+  end 
 
 end
