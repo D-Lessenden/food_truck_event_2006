@@ -60,8 +60,21 @@ attr_reader :name, :food_trucks
   #    @date.strftime("%e %m %y")
   # end
 
-  def sell
+  def sell(item, quantity)
+    if total_inventory[item].nil? || total_inventory[item][:quantity] < quantity
+      return false
+    else
+      @food_trucks.each do |truck|
+        if truck.check_stock(item) > quantity
+          new_stock = truck.check_stock(item) - quantity
+        else truck.check_stock(item) < quantity
+          quantity = quantity - truck.check_stock(item)
+          new_stock = truck.check_stock(item) - truck.check_stock(item)
+          binding.pry
+        end
+      end
+    end
+  end
 
-  end 
 
 end
