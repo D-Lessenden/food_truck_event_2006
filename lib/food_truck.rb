@@ -14,4 +14,10 @@ attr_reader :name, :inventory
     @inventory[item] += quantity
   end
 
+  def potential_revenue
+    @inventory.keys.sum do |item|
+    check_stock(item) * item.price
+    end
+  end
+
 end

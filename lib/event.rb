@@ -27,7 +27,4 @@ attr_reader :name, :food_trucks
   end
 
 
-
-
-
 end
