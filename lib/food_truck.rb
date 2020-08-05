@@ -20,4 +20,8 @@ attr_reader :name, :inventory
     end
   end
 
+  def sell(item, quantity)
+    @inventory[item] -= quantity
+  end
+
 end

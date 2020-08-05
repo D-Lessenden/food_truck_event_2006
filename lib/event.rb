@@ -66,15 +66,18 @@ attr_reader :name, :food_trucks
     else
       @food_trucks.each do |truck|
         if truck.check_stock(item) > quantity
-          new_stock = truck.check_stock(item) - quantity
+            truck.sell(item, quantity)
+          #new_stock = truck.check_stock(item) - quantity
         else truck.check_stock(item) < quantity
-          quantity = quantity - truck.check_stock(item)
-          new_stock = truck.check_stock(item) - truck.check_stock(item)
-          binding.pry
+            truck.sell(item, quantity)
+      
+          #quantity = quantity - truck.check_stock(item)
+          #new_stock = truck.check_stock(item) - truck.check_stock(item)
         end
       end
     end
-  end
+    true
+  end#method
 
 
 end
