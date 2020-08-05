@@ -40,8 +40,6 @@ attr_reader :name, :food_trucks
   end
 
   def overstocked_items
-    #more than 1 food truck
-    #AND the total quantity is greater than 50.
     overstocked = []
     total_inventory.each do |item, truck|
       if truck[:food_trucks].count > 1 && truck[:quantity] > 50
@@ -49,6 +47,12 @@ attr_reader :name, :food_trucks
       end
     end
     overstocked
+  end
+
+  def sorted_item_list
+    total_inventory.map do |item, truck|
+      item.name
+    end.sort
   end
 
 
