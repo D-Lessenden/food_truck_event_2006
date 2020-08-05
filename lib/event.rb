@@ -6,4 +6,28 @@ attr_reader :name, :food_trucks
     @food_trucks = []
   end
 
+  def add_food_truck(truck)
+    @food_trucks << truck
+  end
+
+  def food_truck_names
+    names = []
+    @food_trucks.each do |truck|
+      names << truck.name
+    end
+    names
+  end
+
+  def food_trucks_that_sell(item)
+    trucks_that_sell = []
+    @food_trucks.each do |truck|
+      trucks_that_sell << truck if truck.inventory.include?(item)
+    end
+    trucks_that_sell
+  end
+
+
+
+
+
 end
